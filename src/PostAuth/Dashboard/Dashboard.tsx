@@ -118,8 +118,8 @@ function Dashboard() {
 
 
     useEffect(()=>{
-        const userActualData = JSON.parse(window.localStorage.getItem('UserActualData'));
-        const userActualDataSlice = JSON.parse(window.localStorage.getItem('UserActualDataSlice'))
+        const userActualData = JSON.parse(window.localStorage.getItem('UserActualData') as string);
+        const userActualDataSlice = JSON.parse(window.localStorage.getItem('UserActualDataSlice') as string)
 
         setUserData(userActualData)
         setUserDataSlice(userActualDataSlice)

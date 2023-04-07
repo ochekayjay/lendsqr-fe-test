@@ -15,7 +15,7 @@ function UserDetails() {
     const {width,height} = useWindowResize()
 
     useEffect(()=>{
-        const userParticularData = JSON.parse(window.localStorage.getItem('UserActualData'));
+        const userParticularData = JSON.parse(window.localStorage.getItem('UserActualData') as string);
         setUserDetail(userParticularData)
     },[])
   return (

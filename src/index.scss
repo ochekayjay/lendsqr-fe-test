@@ -1,0 +1,34 @@
+body{
+  margin: 0px;
+  padding: 0px;
+ 
+}
+
+html {
+  display: hidden
+}
+
+  *{
+    margin: 0px;
+    padding: 0px;
+    font-family: Ave;
+    padding-top: 0px;
+  }
+
+  @font-face {
+    font-family: "AvenirNextBold";
+    src: local("AvenirNextBold"),
+      url("./avenir-next/MainFolder/AvenirNextLTPro-Bold.otf") format("truetype");
+  }
+
+  @font-face {
+    font-family: "AvenirNextItalics";
+    src: local("AvenirNextItalics"),
+      url("./avenir-next/MainFolder/AvenirNextLTPro-It.otf") format("truetype");
+  }
+
+  @font-face {
+    font-family: "AvenirNextRegular";
+    src: local("AvenirNextRegular"),
+      url("./avenir-next/MainFolder/AvenirNextLTPro-Regular.otf") format("truetype");
+  }

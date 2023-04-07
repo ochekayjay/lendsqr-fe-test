@@ -1,7 +1,7 @@
 import './UserDetails.scss'
 import Header from '../Header/Header'
 import NavBar from '../Navbar/NavBar'
-import React from 'react'
+import React, {useEffect} from 'react'
 import { useNavigate } from 'react-router-dom'
 import backtodashboard from './backToDashboard.svg'
 import fullStar from './fullStar.svg'
@@ -13,6 +13,11 @@ function UserDetails() {
     const navigate = useNavigate()
     const {setUserDetail,userDetail} = useUserContext()
     const {width,height} = useWindowResize()
+
+    useEffect(()=>{
+        const userParticularData = JSON.parse(window.localStorage.getItem('UserActualData'));
+        setUserDetail(userParticularData)
+    },[])
   return (
     <div style={{boxSizing:'border-box',display:'flex' ,width:'100vw',margin:"0px auto",height:"100vh"}}>
         <NavBar/>

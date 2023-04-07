@@ -6,11 +6,12 @@ import './index.scss'
 import './avenir-next/MainFolder/AvenirNextLTPro-Bold.otf'
 import './avenir-next/MainFolder/AvenirNextLTPro-It.otf'
 import './avenir-next/MainFolder/AvenirNextLTPro-Regular.otf'
+import { HashRouter } from 'react-router-dom'
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <BrowserRouter>
+    <HashRouter>
     <App />
-    </BrowserRouter>
+    </HashRouter>
   </React.StrictMode>,
 )

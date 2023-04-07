@@ -9,13 +9,51 @@
 }
 
 @media(max-width:850px){
-    .bioSection{
+    
+    .bioMobileOff{
+        animation-name: menuClose;
+        animation-duration: 1s;
+        animation-fill-mode: forwards;
+        left:0px;
+        z-index:300;
+        width:85%;
+        display:none;
+        box-shadow: 0px 0px 50px #0b1f36;
         height:100%;
         box-sizing:border-box;
         width:20%;
         overflow: auto;
-        display:none;
         padding-bottom: 15px;
         font-family: 'Work Sans', sans-serif;
     }
+
+    .bioMainMobile{
+        animation-name: menuOption;
+        padding-top: 20px;
+        animation-duration: 1s;
+        animation-fill-mode: forwards;
+        position:absolute;
+        display:block;
+        height:100%;
+        left:0px;
+        z-index:300;
+        width:300px;
+        background-color: white;
+        overflow: auto;
+        padding-bottom: 15px;
+        font-family: 'Work Sans', sans-serif;
+        box-shadow: 0px 0px 50px #0b1f36;
+    
+    }
+
 }
+
+@keyframes menuOption{
+    from{ transform: translateX(-400px)}
+    to{ transform: translateX(0px)}
+  }
+
+  @keyframes menuClose{
+    from{ transform: translateX(-400px)}
+    to{ transform: translateX(-400px)}
+  }

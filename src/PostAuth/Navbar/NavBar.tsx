@@ -6,10 +6,13 @@ import { OrganizationComp, ReportsComp,ServicesComp,ServiceAccountComp,Settlment
 import { AuditLogsComp, FeesPricingComp,PreferencesComp } from './SettingsFolder/SettingsIcon'
 import React,{useState} from 'react'
 import useWindowResize from '../hooks/WindowResize'
+import { useUserContext } from '../../ContextApi/ContextApi'
 
 function NavBar() {
 
+    
     const {width, height} = useWindowResize()
+    const {menuMobile,setMenuMobile} = useUserContext()
     const coustomerIconObj = [
         {text:'Users',icon:UserComp},{text:'Guarantors',icon:GuarantorsComp},
         {text:'Loans',icon:LoanComp},{text:'Decision Models',icon:DecisionComp},
@@ -36,9 +39,11 @@ function NavBar() {
     </linearGradient>
     </defs>
     </svg>
-    
+    const closeicon = <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" fill="#0d47a1"><path d="M6.4 19 5 17.6l5.6-5.6L5 6.4 6.4 5l5.6 5.6L17.6 5 19 6.4 13.4 12l5.6 5.6-1.4 1.4-5.6-5.6Z"/></svg>
+
   return (
-    <div className='bioSection'>
+    <div className={width>850?'bioSection':menuMobile?'bioMainMobile':"bioMobileOff"}>
+                  <p onClick={()=>setMenuMobile(!menuMobile)} style={{padding:"10px",display:width>700?"none":'flex',justifyContent:"center",alignItems:"center",boxSizing:"border-box",position:'absolute',top:"10px",right:'10px',borderRadius:"50%",boxShadow: '0px 0px 5px #0b1f36'}}>{closeicon}</p>
             <div style={{height:'12%',display:'flex',width:'100%',justifyContent:'left',boxSizing:'border-box',paddingLeft:'25px',alignItems:'center'}}>
                 <p>{svgCon}</p>
                 <p style={{color:'#213F7D',fontSize:'30px',paddingLeft:"10px",width:'auto',fontFamily:'AvenirNextBold'}}>lendsqr</p>

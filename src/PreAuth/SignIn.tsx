@@ -2,6 +2,7 @@ import React, {useRef,useState} from 'react'
 import SignImage from './logo&Image/signImage.png'
 import {useNavigate} from 'react-router-dom'
 import { useUserContext } from '../ContextApi/ContextApi'
+import useWindowResize from '../PostAuth/hooks/WindowResize'
 
 
 function SignIn() {
@@ -19,6 +20,7 @@ function SignIn() {
     </defs>
     </svg>
 
+    const {width,height} = useWindowResize()
     const togglePwd= (reff: HTMLInputElement | null)=>{
       if(reff?.type==='text'){
         reff.type = 'password'
@@ -35,6 +37,8 @@ function SignIn() {
       setShowLoadingPage(true)
       const userdata = await fetch('https://6270020422c706a0ae70b72c.mockapi.io/lendsqr/api/v1/users')
       const actualData = await userdata.json()
+      window.localStorage.setItem('UserActualData',JSON.stringify(actualData))
+      window.localStorage.setItem('UserActualDataSlice',JSON.stringify(actualData.slice(0,10)))
       setUserDataSlice(actualData.slice(0,10))
       setUserData(actualData)
       setShowLoadingPage(false)
@@ -54,23 +58,23 @@ function SignIn() {
         </div>
 
         <div style={{display:"flex",justifyContent:'space-around',alignItems:'center',position:'absolute',top:'50%',left:"50%",height:'65%',width:'90%',transform:'translate(-50%,-50%)'}}>
-            <div style={{width:'45%',height:'90%'}}>
+            <div style={{width:'45%',display:width>850?"block":"none",height:'90%'}}>
                 <img style={{height:'100%',width:"100%"}} src={SignImage}/>
             </div>
-            <div style={{width:'45%',height:'90%',position:'relative',fontFamily:"Avenir Next"}}>
-                <div style={{position:'absolute',display:'flex',flexDirection:'column',alignItems:'left',justifyContent:"space-between",top:"50%",left:'50%',height:'90%',width:'85%',transform:'translate(-50%,-50%)'}}>
-                    <div style={{height:'35%', width:'100%'}}>
+            <div style={{width:width>850?'45%':'85%',margin:width>850?"":"0px auto",height:'90%',position:'relative',fontFamily:"Avenir Next"}}>
+                <div style={{position:'absolute',display:'flex',flexDirection:'column',alignItems:'left',justifyContent:"space-between",top:width>850?"50%":'65%',left:'50%',height:'90%',width:'85%',transform:'translate(-50%,-50%)'}}>
+                    <div style={{height:'35%', width:'100%',marginBottom:width>850?'':'30px'}}>
                       <p style={{fontSize:"40px",fontWeight:"700",color:"#213F7D",textAlign:'center',fontFamily:'AvenirNextBold'}}>Welcome!</p>
                       <p style={{textAlign:'center',color:'#545F7D',fontSize:"20px",fontWeight:"400",marginTop:'10px',fontFamily:'AvenirNextRegular'}}>Enter Details to login</p>
                     </div>
                     <div style={{height:"60%",width:'100%',display:"flex",flexDirection:'column',justifyContent:'space-between',alignItems:'center'}}>
-                      <p style={{height:'20%',width:'70%'}}><input placeholder='Email' style={{paddingLeft:'15px',letterSpacing:'1.7px',width:'100%',fontFamily:'AvenNextRegular',height:'100%',borderRadius:'5px',border:'2px solid #545F7D'}}type='email'/></p>
-                      <p style={{height:'20%',width:'70%',position:'relative'}}>
-                          <input placeholder='Password' ref={passwordRef} style={{paddingLeft:'15px',letterSpacing:'1.7px',fontFamily:'AvenNextRegular',width:'100%',height:'100%',borderRadius:'5px',border:'2px solid #545F7D'}}type='password'/>
-                          <p style={{width:'10%',height:'100%',position:'absolute',top:'0px',right:'0px',display:'flex',alignItems:"center",justifyContent:'center'}}><span style={{fontFamily:'AvenNextBold',color: showColor?'#39CDCC':'#545F7D',letterSpacing:'1.5px',cursor:'pointer'}} onClick={()=> togglePwd(passwordRef.current)}>SHOW</span></p>
+                      <p style={{height:'20%',width:width>850?'70%':'auto'}}><input placeholder='Email' style={{paddingLeft:'15px',letterSpacing:'1.7px',width:width>850?'100%':'250px',fontFamily:'AvenNextRegular',height:'100%',borderRadius:'5px',border:'2px solid #545F7D'}}type='email'/></p>
+                      <p style={{height:'20%',width:width>850?'70%':'auto',position:'relative'}}>
+                          <input placeholder='Password' ref={passwordRef} style={{paddingLeft:'15px',letterSpacing:'1.7px',fontFamily:'AvenNextRegular',width:width>850?'100%':'250px',height:'100%',borderRadius:'5px',border:'2px solid #545F7D'}}type='password'/>
+                          <p style={{width:'10%',height:'100%',position:'absolute',top:'0px',right:width>850?'0px':'15px',display:'flex',alignItems:"center",justifyContent:'center'}}><span style={{fontFamily:'AvenNextBold',color: showColor?'#39CDCC':'#545F7D',letterSpacing:'1.5px',cursor:'pointer'}} onClick={()=> togglePwd(passwordRef.current)}>SHOW</span></p>
                       </p>
                       <p style={{height:'15%',color:'#39CDCC',width:'70%',fontFamily:'AvenirNextRegular',textAlign:'left'}}>FORGOT PASSWORD</p>
-                      <button onClick={()=> {getUsers()}} style={{height:'25%',fontSize:'15px',color:"white",width:'70%',backgroundColor:'#39CDCC',borderRadius:'8px'}}>LOG IN</button>
+                      <button onClick={()=> {getUsers()}} style={{height:'25%',fontSize:'15px',color:"white",width:width>850?'70%':'250px',backgroundColor:'#39CDCC',borderRadius:'8px'}}>LOG IN</button>
                     </div>
                     
                 </div>

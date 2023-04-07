@@ -6,8 +6,10 @@ interface UserContextProps {
     setShowLoadingPage: (showLoadingPage: boolean) => void;
     userData :any[];
     userDataSlice: any[];
+    userDetail: {[key:string]:any};
     setUserDataSlice: (userDataSlice: any)=> void;
     setUserData : (userData: any)=> void;
+    setUserDetail: (userDetail: any)=>void;
   }
 
   const UserContext = createContext<UserContextProps>({
@@ -15,8 +17,10 @@ interface UserContextProps {
     setShowLoadingPage: (showLoadingPage: boolean) => {},
     userData : [],
     userDataSlice : [],
+    userDetail: {},
     setUserData : (userData: any)=> {},
-    setUserDataSlice : (userDataSlice: any)=> {}
+    setUserDataSlice : (userDataSlice: any)=> {},
+    setUserDetail : (userDetail: any)=> {},
     
   });
   
@@ -31,9 +35,10 @@ interface UserContextProps {
     const [showLoadingPage, setShowLoadingPage] = useState(false);
     const [userData,setUserData] = useState([])
     const [userDataSlice,setUserDataSlice] = useState([])
+    const [userDetail, setUserDetail] = useState<any>()
 
 return(
-    <UserContext.Provider value={{ showLoadingPage, setShowLoadingPage,userData,setUserData,userDataSlice,setUserDataSlice}}>
+    <UserContext.Provider value={{ userDetail,setUserDetail,showLoadingPage, setShowLoadingPage,userData,setUserData,userDataSlice,setUserDataSlice}}>
       {children}
     </UserContext.Provider>
 )

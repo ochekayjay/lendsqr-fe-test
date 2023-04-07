@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import {useNavigate} from 'react-router-dom'
 import './Dashboard.scss'
 import Bell from './sqrIconHolder/bell.svg'
 import searchicon from './sqrIconHolder/search.svg'
@@ -14,8 +15,29 @@ import buttonRight from './sqrIconHolder/nextButton.svg'
 import buttonLeft from './sqrIconHolder/previousButton.svg'
 import NavBar from '../Navbar/NavBar'
 import Header from '../Header/Header'
+import blacklistUser from './sqrIconHolder/blacklistUser.svg'
+import activateUser from './sqrIconHolder/activateUser.svg'
+import viewUser from './sqrIconHolder/viewDetails.svg'
 
 function Dashboard() {
+    const navigate = useNavigate()
+
+    interface idValue{
+        id: string
+    }
+
+    const getUserDetails = async(id:String)=>{
+        console.log(id)
+        const userPersonal = await fetch(`https://6270020422c706a0ae70b72c.mockapi.io/lendsqr/api/v1/users/${id}`)
+        console.log(userPersonal)
+        const actualUserData = await userPersonal.json()
+        console.log(actualUserData)
+        setUserDetail(actualUserData)
+       
+        navigate('/userdetails')
+  
+      }
+
 
     const nextPage = ()=>{
         if(currentPage<10 && pages.includes(currentPage+1 || 2)){
@@ -85,8 +107,9 @@ function Dashboard() {
 
     
     const [pages,setpages] = useState([1,2,'....',9,10])
-    const {userData,setUserData,userDataSlice,setUserDataSlice} = useUserContext()
+    const {userData,setUserData,userDataSlice,setUserDataSlice,setUserDetail,userDetail} = useUserContext()
     const [currentPage,setCurrentPage] = useState(1)
+    const [lineNumber,setLineNumber] = useState(999999)
   
     
 
@@ -141,8 +164,17 @@ function Dashboard() {
                             <p style={{textAlign:'left',paddingLeft:'10px',width:'20%',fontWeight:'bolder',fontFamily:"'Work Sans', sans-serif",fontStyle:'regular',lineHeight:'16.4px'}}>{data.email}</p>
                             <p style={{textAlign:'left',paddingLeft:'10px',fontWeight:'bolder',width:'15%',fontFamily:"'Work Sans', sans-serif",fontStyle:'regular',lineHeight:'16.4px'}}>{data.phoneNumber}</p>
                             <p style={{textAlign:'left',paddingLeft:'10px',fontWeight:'bolder',width:'20%',fontFamily:"'Work Sans', sans-serif",fontStyle:'regular',lineHeight:'16.4px'}}>{data.createdAt}</p>
-                            <p style={{textAlign:'left',paddingLeft:'10px',width:'13%'}}>inactive</p>
-                            <p style={{textAlign:'left',width:'5%'}}><img src={options}/></p>
+                            <p style={{textAlign:'left',display:"flex",justifyContent:'center',alignItems:'center',width:"15%"}}>
+                                <span style={{color:'#545F7D',backgroundColor:'#d0d2d8',borderRadius:'5px',width:'auto',padding:'7px',boxSizing:'border-box'}}>inactive</span>
+                            </p>
+                            <div style={{textAlign:'left',width:'5%',position:'relative'}}>
+                                <p onClick={()=>setLineNumber(data['id'])} style={{width:'15px'}}><img src={options}/></p>
+                                <div style={{position:'absolute',display:lineNumber===data['id']?'flex':'none',height:'150px',top:'-10px',left:'-100px',width:'150px',zIndex:"1000",backgroundColor:'white',flexDirection:'column',boxShadow: '0px 0px 3px rgba(0, 0, 0, 0.04)',justifyContent:"space-around"}}>
+                                    <p onClick={()=>getUserDetails(data['id'])} style={{display:'flex',justifyContent:'space-around',alignItems:'center',cursor:'pointer'}}><span style={{display:'flex',justifyContent:'centr',alignItems:"center"}}><img src={viewUser}/></span><span style={{paddingLeft:'7px'}}>View Details</span></p>
+                                    <p style={{display:'flex',justifyContent:'space-around',alignItems:'center',cursor:'pointer'}}><span style={{display:'flex',justifyContent:'centr',alignItems:"center"}}><img src={blacklistUser}/></span><span style={{paddingLeft:'7px'}}>Blacklist User</span></p>
+                                    <p style={{display:'flex',justifyContent:'space-around',alignItems:'center',cursor:'pointer'}}><span style={{display:'flex',justifyContent:'centr',alignItems:"center"}}><img src={activateUser}/></span><span style={{paddingLeft:'7px'}}>Activate User</span></p>
+                                </div>
+                            </div>
                              </div>)}
                         </div>
                 </div>

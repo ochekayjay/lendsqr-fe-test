@@ -5,9 +5,11 @@ import { KarmaComp,LoanComp,UserComp,SavingsComp,LoanRequestComp,GuarantorsComp,
 import { OrganizationComp, ReportsComp,ServicesComp,ServiceAccountComp,SettlmentsComp,TransactionComp,LoanProductsComp,FeesAndChargesComp,SavingsProductComp } from './BusinessFolder/BusinessIcon'
 import { AuditLogsComp, FeesPricingComp,PreferencesComp } from './SettingsFolder/SettingsIcon'
 import React,{useState} from 'react'
+import useWindowResize from '../hooks/WindowResize'
 
 function NavBar() {
 
+    const {width, height} = useWindowResize()
     const coustomerIconObj = [
         {text:'Users',icon:UserComp},{text:'Guarantors',icon:GuarantorsComp},
         {text:'Loans',icon:LoanComp},{text:'Decision Models',icon:DecisionComp},

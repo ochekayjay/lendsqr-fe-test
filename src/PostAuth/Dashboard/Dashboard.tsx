@@ -18,6 +18,7 @@ import Header from '../Header/Header'
 import blacklistUser from './sqrIconHolder/blacklistUser.svg'
 import activateUser from './sqrIconHolder/activateUser.svg'
 import viewUser from './sqrIconHolder/viewDetails.svg'
+import useWindowResize from '../hooks/WindowResize'
 
 function Dashboard() {
     const navigate = useNavigate()
@@ -112,7 +113,7 @@ function Dashboard() {
     const [lineNumber,setLineNumber] = useState(999999)
   
     
-
+    const {width, height} = useWindowResize()
 
 
   
@@ -122,7 +123,7 @@ function Dashboard() {
   return (
     <div style={{boxSizing:'border-box',display:'flex' ,width:'100vw',margin:"0px auto",height:"100vh"}}>
         <NavBar/>
-        <div style={{height:'100%',boxSizing:'border-box',width:'80%'}}>
+        <div style={{height:'100%',boxSizing:'border-box',width:width>850?'80%':'95%',margin:width>850?'':'0px auto'}}>
             <Header/>
             <div style={{width:'100%',boxSizing:'border-box',overflow:'auto',height:"88%",backgroundColor:'#edebeb',padding:'40px'}}>
                 <p style={{fontFamily:"'Work Sans', sans-serif",fontWeight:'bolder',fontStyle:'Medium',color:'#082561',fontSize:'24px',width:'100%',textAlign:"left"}}>Users</p>

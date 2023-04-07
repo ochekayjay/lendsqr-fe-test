@@ -7,3 +7,15 @@
     padding-bottom: 15px;
     font-family: 'Work Sans', sans-serif;
 }
+
+@media(max-width:850px){
+    .bioSection{
+        height:100%;
+        box-sizing:border-box;
+        width:20%;
+        overflow: auto;
+        display:none;
+        padding-bottom: 15px;
+        font-family: 'Work Sans', sans-serif;
+    }
+}

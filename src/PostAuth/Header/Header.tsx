@@ -1,5 +1,5 @@
 import './header.scss'
-import { useState } from 'react'
+import { useState,useEffect } from 'react'
 import searchicon from './search.svg'
 import bell from './bell.svg'
 import React from 'react'
@@ -8,7 +8,19 @@ import { useUserContext } from '../../ContextApi/ContextApi'
 
 function Header() {
   const {width,height} = useWindowResize()
-  const {menuMobile, setMenuMobile} = useUserContext()
+  const {menuMobile, setMenuMobile,setUserData,setUserDataSlice,setUserDetail} = useUserContext()
+
+  useEffect(()=>{
+    const userActualData = JSON.parse(window.localStorage.getItem('UserActualData') as string);
+    const userActualDataSlice = JSON.parse(window.localStorage.getItem('UserActualDataSlice') as string)
+    const userParticularData = JSON.parse(window.localStorage.getItem('UserActualData') as string);
+        
+    setUserDetail(userParticularData)
+    setUserData(userActualData)
+    setUserDataSlice(userActualDataSlice)
+
+},[])
+
   const menuIcon = <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" fill="#0d47a1"><path d="M3 18v-2h18v2Zm0-5v-2h18v2Zm0-5V6h18v2Z"/></svg>
   return (
     <div style={{width:'100%',boxSizing:'border-box',display:'flex',justifyContent:'space-around',alignItems:'center',height:"12%"}}>

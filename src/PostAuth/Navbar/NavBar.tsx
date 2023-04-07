@@ -4,7 +4,7 @@ from '../Dashboard/sqrIconHolder/DashboardIcons'
 import { KarmaComp,LoanComp,UserComp,SavingsComp,LoanRequestComp,GuarantorsComp,WitelistComp,DecisionComp } from './CustomerFolder/CustomersIcon'
 import { OrganizationComp, ReportsComp,ServicesComp,ServiceAccountComp,SettlmentsComp,TransactionComp,LoanProductsComp,FeesAndChargesComp,SavingsProductComp } from './BusinessFolder/BusinessIcon'
 import { AuditLogsComp, FeesPricingComp,PreferencesComp } from './SettingsFolder/SettingsIcon'
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import useWindowResize from '../hooks/WindowResize'
 import { useUserContext } from '../../ContextApi/ContextApi'
 
@@ -12,7 +12,7 @@ function NavBar() {
 
     
     const {width, height} = useWindowResize()
-    const {menuMobile,setMenuMobile} = useUserContext()
+    const {menuMobile,setMenuMobile,setUserData,setUserDataSlice,setUserDetail} = useUserContext()
     const coustomerIconObj = [
         {text:'Users',icon:UserComp},{text:'Guarantors',icon:GuarantorsComp},
         {text:'Loans',icon:LoanComp},{text:'Decision Models',icon:DecisionComp},
@@ -40,6 +40,17 @@ function NavBar() {
     </defs>
     </svg>
     const closeicon = <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" fill="#0d47a1"><path d="M6.4 19 5 17.6l5.6-5.6L5 6.4 6.4 5l5.6 5.6L17.6 5 19 6.4 13.4 12l5.6 5.6-1.4 1.4-5.6-5.6Z"/></svg>
+
+    useEffect(()=>{
+        const userActualData = JSON.parse(window.localStorage.getItem('UserActualData') as string);
+        const userActualDataSlice = JSON.parse(window.localStorage.getItem('UserActualDataSlice') as string)
+        const userParticularData = JSON.parse(window.localStorage.getItem('UserActualData') as string);
+            
+        setUserDetail(userParticularData)
+        setUserData(userActualData)
+        setUserDataSlice(userActualDataSlice)
+    
+    },[])
 
   return (
     <div className={width>850?'bioSection':menuMobile?'bioMainMobile':"bioMobileOff"}>

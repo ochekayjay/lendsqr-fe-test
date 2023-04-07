@@ -63,11 +63,11 @@ function SignIn() {
             </div>
             <div style={{width:width>850?'45%':'85%',margin:width>850?"":"0px auto",height:'90%',position:'relative',fontFamily:"Avenir Next"}}>
                 <div style={{position:'absolute',display:'flex',flexDirection:'column',alignItems:'left',justifyContent:"space-between",top:width>850?"50%":'65%',left:'50%',height:'90%',width:'85%',transform:'translate(-50%,-50%)'}}>
-                    <div style={{height:'35%', width:'100%',marginBottom:width>850?'':'30px'}}>
+                    <div style={{height:width>850?'35%':'25%', width:'100%',marginBottom:width>850?'':'30px'}}>
                       <p style={{fontSize:"40px",fontWeight:"700",color:"#213F7D",textAlign:'center',fontFamily:'AvenirNextBold'}}>Welcome!</p>
                       <p style={{textAlign:'center',color:'#545F7D',fontSize:"20px",fontWeight:"400",marginTop:'10px',fontFamily:'AvenirNextRegular'}}>Enter Details to login</p>
                     </div>
-                    <div style={{height:"60%",width:'100%',display:"flex",flexDirection:'column',justifyContent:'space-between',alignItems:'center'}}>
+                    <div style={{height:width>850?"60%":'70%',width:'100%',display:"flex",flexDirection:'column',justifyContent:'space-between',alignItems:'center'}}>
                       <p style={{height:'20%',width:width>850?'70%':'auto'}}><input placeholder='Email' style={{paddingLeft:'15px',letterSpacing:'1.7px',width:width>850?'100%':'250px',fontFamily:'AvenNextRegular',height:'100%',borderRadius:'5px',border:'2px solid #545F7D'}}type='email'/></p>
                       <p style={{height:'20%',width:width>850?'70%':'auto',position:'relative'}}>
                           <input placeholder='Password' ref={passwordRef} style={{paddingLeft:'15px',letterSpacing:'1.7px',fontFamily:'AvenNextRegular',width:width>850?'100%':'250px',height:'100%',borderRadius:'5px',border:'2px solid #545F7D'}}type='password'/>

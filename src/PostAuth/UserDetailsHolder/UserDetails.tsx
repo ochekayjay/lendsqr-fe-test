@@ -25,7 +25,7 @@ function UserDetails() {
         <NavBar/>
         <div style={{height:'100%',boxSizing:'border-box',width:width>850?'80%':'95%',margin:width>850?'':'0px auto'}}>
             <Header/>
-            <div style={{width:'100%',boxSizing:'border-box',overflow:'auto',height:"88%",backgroundColor:'#edebeb',padding:'40px'}}>
+            <div style={{width:'100%',boxSizing:'border-box',overflow:'auto',height:"88%",backgroundColor:'#edebeb',padding:width>850?'40px':'25px'}}>
                 <p onClick={()=>navigate('/dashboard')} style={{textAlign:'left',cursor:'pointer',boxSizing:'border-box',display:'flex',alignItems:'center'}}>
                     <span style={{display:'flex',alignItems:"center",justifyContent:"center"}}><img src={backtodashboard}/></span>
                     <span style={{fontFamily:"'Work Sans', sans-serif",paddingLeft:'15px',boxSizing:'border-box',fontWeight:'bolder',}}>Back To Users</span>
@@ -47,9 +47,9 @@ function UserDetails() {
                             </p>
                         </div>
                         <div style={{height:'100%',width:width>850?'30%':'100%',margin:width>850?'0px 15px 0px 15px':'0px',boxSizing:'border-box'}}>
-                        <p style={{marginLeft:width>850?'5px':'0px',display:'flex',justifyContent:width>850?'space-around':'space-between',flexDirection:width>850?'column':'row',width:"100%",height:"100%",boxSizing:'border-box'}}>
+                        <p style={{marginLeft:width>850?'5px':'0px',display:'flex',alignItems:'center',justifyContent:width>850?'space-around':'space-between',flexDirection:width>850?'column':'row',width:"100%",height:"100%",boxSizing:'border-box'}}>
                                 <span style={{fontFamily:"'Work Sans', sans-serif",fontWeight:'bolder',color:'#213F7D',fontSize:'20px',display:'flex',justifyContent:'center',alignItems:"center"}}>User's Tier</span>
-                                <span style={{display:'flex',justifyContent:'space-around',width:'40%',margin:'0px auto'}}><img src={fullStar}/><img src={emptystar}/><img src={emptystar}/></span>
+                                <span style={{display:'flex',justifyContent:'space-around',width:width>850?'40%':'50%',height:width>850?'auto':'20px',margin:'0px auto'}}><img src={fullStar}/><img src={emptystar}/><img src={emptystar}/></span>
                             </p>
                         </div>
                         <div style={{height:'100%',width:width>850?'30%':'100%',}}>

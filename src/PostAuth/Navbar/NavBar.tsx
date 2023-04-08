@@ -44,7 +44,7 @@ function NavBar() {
     useEffect(()=>{
         const userActualData = JSON.parse(window.localStorage.getItem('UserActualData') as string);
         const userActualDataSlice = JSON.parse(window.localStorage.getItem('UserActualDataSlice') as string)
-        const userParticularData = JSON.parse(window.localStorage.getItem('UserActualData') as string);
+        const userParticularData = JSON.parse(window.localStorage.getItem('UserParticularData') as string);
             
         setUserDetail(userParticularData)
         setUserData(userActualData)

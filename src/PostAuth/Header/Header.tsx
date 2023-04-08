@@ -25,7 +25,7 @@ function Header() {
   return (
     <div style={{width:'100%',boxSizing:'border-box',display:'flex',justifyContent:'space-around',alignItems:'center',height:"12%"}}>
                 <p onClick={()=>setMenuMobile(!menuMobile)} style={{padding:'10px',display:width>850?"none":'flex',justifyContent:"center",alignItems:"center",boxSizing:"border-box",marginTop:"5px",marginLeft:'5px',borderRadius:"50%",boxShadow: '0px 0px 5px #0b1f36'}}>{menuIcon}</p>   
-                <div style={{width:width>850?'35%':'250px',margin:width>850?'':'0px 15px 0px 30px',height:'45px',border:'2px solid green',borderRadius:'10px',position:'relative',display:'flex',alignItems:'center'}}>
+                <div style={{width:width>850?'35%':'250px',margin:width>850?'':'0px 15px 0px 30px',height:'45px',borderRadius:'10px',position:'relative',display:'flex',alignItems:'center'}}>
                     <input type='text' placeholder='Search for anything' style={{paddingLeft:'15px',fontFamily:"'Work Sans', sans-serif",fontWeight:'bolder',outline:'none',borderWidth:'0px 0px 0px',width:'85%',height:"90%"}}/>
                     <p style={{height:'100%',width:'15%',borderRadius:'0px 10px 10px 0px',backgroundColor:'#39CDCC',display:'flex',alignItems:'center',justifyContent:'center'}}><span><img src={searchicon}/></span></p>
                 </div>

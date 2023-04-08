@@ -42,6 +42,7 @@ function NavBar() {
     const closeicon = <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" fill="#0d47a1"><path d="M6.4 19 5 17.6l5.6-5.6L5 6.4 6.4 5l5.6 5.6L17.6 5 19 6.4 13.4 12l5.6 5.6-1.4 1.4-5.6-5.6Z"/></svg>
 
     useEffect(()=>{
+        console.log('b')
         const userActualData = JSON.parse(window.localStorage.getItem('UserActualData') as string);
         const userActualDataSlice = JSON.parse(window.localStorage.getItem('UserActualDataSlice') as string)
         const userParticularData = JSON.parse(window.localStorage.getItem('UserParticularData') as string);

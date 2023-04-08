@@ -63,18 +63,18 @@ function SignIn() {
             </div>
             <div style={{width:width>850?'45%':'85%',margin:width>850?"":"0px auto",height:'90%',position:'relative',fontFamily:"Avenir Next"}}>
                 <div style={{position:'absolute',display:'flex',flexDirection:'column',alignItems:'left',justifyContent:"space-between",top:width>850?"50%":'65%',left:'50%',height:'90%',width:'85%',transform:'translate(-50%,-50%)'}}>
-                    <div style={{height:width>850?'35%':'25%', width:'100%',marginBottom:width>850?'':'30px'}}>
-                      <p style={{fontSize:"40px",fontWeight:"700",color:"#213F7D",textAlign:'center',fontFamily:'AvenirNextBold'}}>Welcome!</p>
+                    <div style={{height:width>850?'35%':'auto', width:'100%',marginBottom:width>850?'':'30px'}}>
+                      <p style={{fontSize:width>850?"40px":'25px',fontWeight:"700",color:"#213F7D",textAlign:'center',fontFamily:'AvenirNextBold'}}>Welcome!</p>
                       <p style={{textAlign:'center',color:'#545F7D',fontSize:"20px",fontWeight:"400",marginTop:'10px',fontFamily:'AvenirNextRegular'}}>Enter Details to login</p>
                     </div>
-                    <div style={{height:width>850?"60%":'70%',width:'100%',display:"flex",flexDirection:'column',justifyContent:'space-between',alignItems:'center'}}>
-                      <p style={{height:'20%',width:width>850?'70%':'auto'}}><input placeholder='Email' style={{paddingLeft:'15px',letterSpacing:'1.7px',width:width>850?'100%':'250px',fontFamily:'AvenNextRegular',height:'100%',borderRadius:'5px',border:'2px solid #545F7D'}}type='email'/></p>
-                      <p style={{height:'20%',width:width>850?'70%':'auto',position:'relative'}}>
+                    <div style={{height:width>850?"60%":'auto',width:'100%',display:"flex",flexDirection:'column',justifyContent:'space-between',alignItems:'center'}}>
+                      <p style={{height:width>850?'20%':'45px',width:width>850?'70%':'auto',marginBottom:width>850?'':'10px'}}><input placeholder='Email' style={{paddingLeft:'15px',letterSpacing:'1.7px',width:width>850?'100%':'250px',fontFamily:'AvenNextRegular',height:'100%',borderRadius:'5px',border:'2px solid #545F7D'}}type='email'/></p>
+                      <p style={{height:width>850?'20%':'45px',width:width>850?'70%':'auto',marginBottom:width>850?'':'10px',position:'relative'}}>
                           <input placeholder='Password' ref={passwordRef} style={{paddingLeft:'15px',letterSpacing:'1.7px',fontFamily:'AvenNextRegular',width:width>850?'100%':'250px',height:'100%',borderRadius:'5px',border:'2px solid #545F7D'}}type='password'/>
                           <p style={{width:'10%',height:'100%',position:'absolute',top:'0px',right:width>850?'0px':'15px',display:'flex',alignItems:"center",justifyContent:'center'}}><span style={{fontFamily:'AvenNextBold',color: showColor?'#39CDCC':'#545F7D',letterSpacing:'1.5px',cursor:'pointer'}} onClick={()=> togglePwd(passwordRef.current)}>SHOW</span></p>
                       </p>
-                      <p style={{height:'15%',color:'#39CDCC',width:'70%',fontFamily:'AvenirNextRegular',textAlign:'left'}}>FORGOT PASSWORD</p>
-                      <button onClick={()=> {getUsers()}} style={{height:'25%',fontSize:'15px',color:"white",width:width>850?'70%':'250px',backgroundColor:'#39CDCC',borderRadius:'8px'}}>LOG IN</button>
+                      <p style={{height:width>850?'15%':'25px',color:'#39CDCC',width:'70%',fontFamily:'AvenirNextRegular',textAlign:'left'}}>FORGOT PASSWORD</p>
+                      <button onClick={()=> {getUsers()}} style={{height:width>850?'25%':'45px',fontSize:'15px',color:"white",width:width>850?'70%':'250px',backgroundColor:'#39CDCC',borderRadius:'8px'}}>LOG IN</button>
                     </div>
                     
                 </div>

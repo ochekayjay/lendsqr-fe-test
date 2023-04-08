@@ -73,7 +73,7 @@ function SignIn() {
                           <input placeholder='Password' ref={passwordRef} style={{paddingLeft:'15px',letterSpacing:'1.7px',fontFamily:'AvenNextRegular',width:width>850?'100%':'250px',height:'100%',borderRadius:'5px',border:'2px solid #545F7D'}}type='password'/>
                           <p style={{width:'10%',height:'100%',position:'absolute',top:'0px',right:width>850?'0px':'15px',display:'flex',alignItems:"center",justifyContent:'center'}}><span style={{fontFamily:'AvenNextBold',color: showColor?'#39CDCC':'#545F7D',letterSpacing:'1.5px',cursor:'pointer'}} onClick={()=> togglePwd(passwordRef.current)}>SHOW</span></p>
                       </p>
-                      <p style={{height:width>850?'15%':'25px',color:'#39CDCC',width:'70%',fontFamily:'AvenirNextRegular',textAlign:'left'}}>FORGOT PASSWORD</p>
+                      <p style={{height:width>850?'15%':'20px',color:'#39CDCC',width:'70%',fontFamily:'AvenirNextRegular',textAlign:'left'}}>FORGOT PASSWORD</p>
                       <button onClick={()=> {getUsers()}} style={{height:width>850?'25%':'45px',fontSize:'15px',color:"white",width:width>850?'70%':'250px',backgroundColor:'#39CDCC',borderRadius:'8px'}}>LOG IN</button>
                     </div>
                     

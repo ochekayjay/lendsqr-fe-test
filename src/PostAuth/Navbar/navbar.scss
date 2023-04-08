@@ -32,10 +32,12 @@
         padding-top: 20px;
         animation-duration: 1s;
         animation-fill-mode: forwards;
-        position:absolute;
+        position:fixed;
         display:block;
         height:100%;
         left:0px;
+        top:0px;
+        bottom:0px;
         z-index:300;
         width:300px;
         background-color: white;

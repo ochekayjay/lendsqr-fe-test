@@ -28,11 +28,10 @@ function Dashboard() {
     }
 
     const getUserDetails = async(id:String)=>{
-        console.log(id)
+        
         const userPersonal = await fetch(`https://6270020422c706a0ae70b72c.mockapi.io/lendsqr/api/v1/users/${id}`)
     
         const actualUserData = await userPersonal.json()
-        window.localStorage.setItem('UserParticularData',JSON.stringify(actualUserData))
     
         setUserDetail(actualUserData)
        
@@ -121,8 +120,7 @@ function Dashboard() {
         
         const userActualData = JSON.parse(window.localStorage.getItem('UserActualData') as string);
         const userActualDataSlice = JSON.parse(window.localStorage.getItem('UserActualDataSlice') as string)
-        console.log(userActualData)
-        console.log(userActualDataSlice)
+     
         setUserData(userActualData)
         setUserDataSlice(userActualDataSlice)
 
